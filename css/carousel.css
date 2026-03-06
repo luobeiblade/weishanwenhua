@@ -1,0 +1,200 @@
+/* 轮播容器 */
+.carousel-container {
+    position: relative;
+    max-width: 100%;
+    margin: 2rem auto;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* 轮播图片列表 */
+.carousel-slides {
+    display: flex;
+    transition: transform 0.5s ease;
+    width: 100%;
+}
+
+/* 单张轮播图 */
+.carousel-slide {
+    min-width: 100%;
+    position: relative;
+}
+
+.carousel-slide img {
+    width: 100%;
+    height: 400px; /* 轮播图高度，可自行调整 */
+    object-fit: cover;
+    display: block;
+}
+
+/* 轮播图标题 - 调整位置避免遮挡图片 */
+.carousel-caption {
+    position: absolute;
+    /* 从底部移到顶部，且使用半透明背景不遮挡图片核心内容 */
+    top: 0;
+    left: 0;
+    right: 0;
+    padding: 0.8rem 1rem;
+    /* 浅色半透明背景，文字深色，既清晰又不遮挡图片 */
+    background: rgba(255, 255, 255, 0.8);
+    color: #2a4435;
+    font-weight: 500;
+    font-size: 1.1rem;
+    text-align: center;
+    /* 增加轻微阴影提升可读性 */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* 切换按钮 */
+.carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255, 255, 255, 0.3);
+    border: none;
+    color: white;
+    font-size: 2rem;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background 0.3s;
+    z-index: 10;
+}
+
+.carousel-btn:hover {
+    background: rgba(181, 91, 62, 0.8);
+}
+
+.prev-btn {
+    left: 15px;
+}
+
+.next-btn {
+    right: 15px;
+}
+
+/* 指示器（小圆点） */
+.carousel-indicators {
+    position: absolute;
+    /* 指示器上移，远离图片内容区域 */
+    bottom: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 10px;
+    z-index: 10;
+}
+
+.indicator {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    border: none;
+    background: rgba(255, 255, 255, 0.5);
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.indicator.active {
+    background: #b55b3e; /* 与导航高亮同色 */
+}
+
+/* 移动端适配 */
+@media (max-width: 768px) {
+    .carousel-slide img {
+        height: 250px; /* 移动端缩小轮播图高度 */
+    }
+    .carousel-btn {
+        width: 40px;
+        height: 40px;
+        font-size: 1.5rem;
+    }
+    .carousel-caption {
+        font-size: 0.9rem;
+        padding: 0.6rem 0.8rem;
+    }
+}
+
+/* 图片放大预览遮罩层 */
+.image-viewer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.9);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    padding: 20px;
+}
+
+/* 显示放大预览 */
+.image-viewer.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* 放大的图片容器 */
+.viewer-content {
+    max-width: 90%;
+    max-height: 90%;
+    position: relative;
+}
+
+/* 放大的图片样式 */
+.viewer-image {
+    max-width: 100%;
+    max-height: 90vh;
+    object-fit: contain;
+    border-radius: 8px;
+    box-shadow: 0 0 30px rgba(255, 255, 255, 0.2);
+}
+
+/* 关闭按钮 */
+.viewer-close {
+    position: absolute;
+    top: -40px;
+    right: 0;
+    background: transparent;
+    border: none;
+    color: white;
+    font-size: 2rem;
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: color 0.3s;
+}
+
+.viewer-close:hover {
+    color: #b55b3e;
+}
+
+/* 图片标题（放大时） */
+.viewer-caption {
+    color: white;
+    text-align: center;
+    margin-top: 15px;
+    font-size: 1.2rem;
+    font-weight: 500;
+}
+
+/* 移动端适配 */
+@media (max-width: 768px) {
+    .viewer-close {
+        font-size: 1.5rem;
+        top: -30px;
+    }
+    .viewer-caption {
+        font-size: 1rem;
+    }
+}

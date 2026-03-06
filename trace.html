@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>沩山 · 千年窑火 | 窑火遗痕</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/trace2.css"> <!-- 新增专用样式 -->
+</head>
+<body>
+    <!-- 固定导航 header -->
+    <header class="navbar">
+        <div class="logo">沩山<span> · 窑影</span></div>
+        <nav class="nav-links">
+            <a href="index.html">千峰翠色</a>
+            <a href="trace.html" class="active">窑火遗痕</a>
+            <a href="history.html">小南京往事</a>
+            <a href="taste.html">沩山味道</a>
+            <a href="travel.html">行走沩山</a>
+            <a href="dynamic.html">一脉青花</a>
+        </nav>
+    </header>
+    <main>
+        <section class="section">
+            <div class="banner banner-2">
+               
+            </div>
+
+            <div class="container">
+                <h2 class="section-title">寻瓷 · 访古</h2>
+                <!-- 新增：地图上方引导文字 -->
+                <div class="map-intro">
+                    <p>  沩山深处，藏着一部用瓷土写就的史书。
+                    <p>千年窑火未曾熄灭，在月形湾古窑厂的阶级窑里，在枫树坡古道青石板的深深车辙里，在惜字塔焚香敬字的袅袅青烟里——时光被烧制成釉，凝固成瓷，静静等待懂它的人来翻阅。
+                    <p>这里是醴陵瓷业的发源地，是釉下五彩瓷的故乡，也是2025年新晋的湖南省首批省级乡村博物馆所在地。走进沩山，你可以在古窑遗址亲手拉坯，体验从泥土到瓷器的神奇蜕变；可以循着枫树坡古道，用脚步丈量当年窑工们运送瓷器的艰辛与荣耀；可以在古洞天寺前驻足，感受佛道文化与千年窑火交融共生的灵气；可以在玫瑰花海间穿行，看古老村落如何在乡村振兴中绽放新的容颜。还有望仙桥水库的碧波荡漾，沩山豆腐体验馆里的石磨声声，农家小院里飘出的糯米饭香……这是一个可以触摸的历史，可以品尝的乡愁，可以带走的诗意。</p>
+                    <p>沩山在等——等你看窑火如何在青瓷上开出花朵，等你听古道如何在山风里诉说往事，等你把一颗浮躁的心，安放在这片瓷土般温厚的土地里。来沩山吧，趁时光正好，趁窑火未熄。</p>
+                    <br><p>点击下方地点，探寻沩山深处的历史印记，每一处都藏着窑火的故事。</p>
+                </div>
+                <!-- 七个地点切换按钮（地图标注） -->
+                <div class="map-sim">
+                    <div class="map-marker-grid">
+                        <button class="marker-btn active" data-site="yuexingwan">月形湾古窑厂</button>
+                        <button class="marker-btn" data-site="xizita">惜字塔</button>
+                        <button class="marker-btn" data-site="fengshupo">枫树坡古道</button>
+                        <button class="marker-btn" data-site="gudongtian">古洞天</button>
+                        <button class="marker-btn" data-site="doufu">沩山豆腐体验馆</button>
+                        <button class="marker-btn" data-site="meiguijidi">玫瑰花基地</button>
+                        <button class="marker-btn" data-site="wangxianqiao">望仙桥水库</button>
+                    </div>
+                    <div class="tip-note">🐾 “低头皆是瓷片”——小心脚下的青花记忆</div>
+                </div>
+
+                <!-- 地点详情展示区域（包含轮播） -->
+                <div class="site-detail-container" id="siteDetail">
+                    <!-- 标题、描述、轮播图将由JS动态填充 -->
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+    
+    <footer class="footer-note">
+        ⛰️窑火千年 · 古韵沩山 · 乡村新声<br>
+        
+    </footer>
+
+    <script>
+        // 地点数据
+        const sitesData = [
+            {
+                id: 'yuexingwan',
+                name: '月形湾古窑厂',
+                description: `月形湾古窑厂位于醴陵市沩山镇沩山村，是醴陵窑的核心遗存，也是全国保存最为完好的古窑厂之一。它由罗良西创办于清光绪元年（1875年），因沩水在此蜿蜒如新月而得名。这座窑厂窑火延续百年，直至20世纪80年代才停烧，完整见证了近代醴陵窑的兴衰。2025年，这里入选湖南省首批省级乡村博物馆。
+                古窑厂占地约1550平方米，布局科学，完整呈现了传统制瓷产业链。核心生产区的阶级窑依山而建，极具特色；原料制备区有采泥矿井、碓泥作坊；成型区则是拉坯、彩绘的场所。参观者不仅能近距离观察古窑结构，还能亲手体验拉坯制瓷。景点特色之处在于复刻的“醴陵沩山清代瓷业条规碑”和地方特色瓷器藏品。
+                出行建议周二至周日前往，通过“醴陵窑”官方渠道预约。这里既是历史博物馆，也是活态传承的陶瓷文化空间。`,
+                images: ['trace2-1.png', 'trace2-2.png', 'trace2-3.png','trace2-4.png']
+            },
+            {
+                id: 'xizita',
+                name: '惜字塔',
+                description: `沩山村的标志性古建筑之一，承载着沩山人对文化的敬畏与传承。在醴陵市沩山村月形湾古窑厂的东侧，静静伫立着一座古朴雅致的清代砖塔——惜字塔。它不仅是沩山村重要的历史地标，更是中华民族敬惜字纸、崇尚文化传统风俗的生动见证。
+                这座古塔建于清代，至今保存完好。塔的形制为独特的阁楼式，平面呈六边形，通高5米，由塔基、塔台、塔身和塔刹组成。整座塔以窑砖和青石筑基，塔身则由坚固的青石砌筑，共分为五层，其高度自下而上层层递减，且每一层都单独开设有小窗，整体造型玲珑而稳固。
+                惜字塔，顾名思义，是古代文人墨客用来焚烧字纸的专门场所。这一习俗在宋、元之际逐渐流行，至明清时期达到鼎盛。那时的人们对写有文字的纸张怀有敬畏之心，认为字纸承载着圣贤的道理和文明的火种，不得用于裱糊、包裹或随意践踏，必须集中到惜字塔（或称惜字炉）中焚化，以示对知识和文化的尊崇。沩山村的这座惜字塔，正是这一古老风俗流传至偏僻山乡的实物证明。它历经百年风雨而得以保存至今，离不开当地村民的悉心守护。据记载，在上世纪七八十年代，正是由于村民们的全力自发保护和主动修缮，这座珍贵的古塔才免于损毁，得以完好地保存其历史风貌。如今，当我们走近这座古塔，仿佛仍能感受到昔日沩山瓷业兴旺时，人们尊文重教的淳朴民风。它不仅为后世研究中华民族传统文化习俗提供了珍贵的实物资料，也以其独特的建筑形态，成为点缀在古窑、古村之间的文化风景，具有较高的历史、文化与艺术价值。`,
+                images: ['trace3-1.png', 'trace3-2.png']
+            },
+            {
+                id: 'fengshupo',
+                name: '枫树坡古道',
+                description: `枫树坡古道位于醴陵市沩山镇沩山村，是醴陵窑的核心遗存之一，也是昔日运送瓷器的“主动脉”。这条古道原从沩山村月形湾组延伸至县城姜湾码头，全长约15公里。20世纪50年代因修建望仙桥水库，部分路段被淹没，如今保存最完好的是从月形湾至福善桥约2公里的路段，沿线4座古桥至今仍在使用。
+                古道最独特的印记，是青石板桥上那道被独轮车长年累月碾压出的深深凹槽。当年，窑工们推着满载瓷器的独轮车，从这里出发，经姜湾码头装船，由渌江入湘江、出洞庭、过长江，将醴陵瓷器运往全国各地乃至海外。1905年，熊希龄考察沩山瓷业时也曾走过这条古道，为后来醴陵釉下五彩瓷的诞生埋下伏笔。
+                古道旁有两口宋代古井，其中一口旁建有井神庙。运瓷的村民路过此处，都会取水解渴、进庙祈祷，以求远行平安。如今井水依旧甘甜清凉，仍有村民前来取水煮茶。漫步古道上，路边草丛随处可见青花瓷片，无声诉说着当年“小南京”的繁华盛景。这条古道见证了沩山瓷业的兴衰，是醴陵窑珍贵的历史活化石。`,
+                images: ['trace4-1.png', 'trace4-2.png']
+            },
+            {
+                id: 'gudongtian',
+                name: '古洞天',
+                description: `古洞天位于醴陵市沩山镇沩山村，是一个因宗教而兴起、因瓷业而繁荣的文化圣地。这里群峰环绕，泉清林茂，自古便被视为“洞天福地”，唐代道教名人司马承祯所著《天地宫府图》将其列为全国36小洞天中的第十三洞天——“小沩山好生玄上洞天”，相传为仙人花邱林和傅天师修炼之所。
+                
+                古洞天寺始建于唐代，由大缘禅师创建。唐贞观十二年（638年），太宗李世民为完成高祖遗命，敕令重修此寺，由尉迟恭监修。寺院建成后雄伟壮观，不仅是佛教受戒道场，相传鉴真和尚也曾在此受戒。古寺红墙黛瓦，寺门镌刻“古洞清幽地，沩山世外天”的楹联，周边有“洞天春晓”“龙脊高岗”等八景，寺前独石桥上至今留有千年车辙印。
+                
+                古洞天与醴陵瓷业渊源深厚。清雍正七年（1729年），广东移民廖仲威向古洞天寺住持租赁山地采掘瓷泥，创办瓷厂，开启了醴陵瓷业的辉煌篇章。寺后曾建有祭祀瓷业祖师樊进德的樊公庙，每年农历五月十六日，瓷业人士都会前来祭拜。如今，古洞天虽历经沧桑，但依然是醴陵“三沩”文化品牌的核心要素，见证着千年窑火与佛道文化的交融共生。`,
+                images: ['trace5-1.png', 'trace5-2.png']
+            },
+            {
+                id: 'doufu',
+                name: '沩山豆腐文化体验馆',
+                description: 
+                `沩山豆腐文化体验馆位于醴陵市沩山镇沩山村，是展示和传承市级非遗项目“沩山豆腐”的重要场所。该馆于2022年建成，旨在弘扬传统技艺，让游客沉浸式感受非遗魅力。
+                
+                沩山豆腐以当地优质黄豆和清甜山泉水为原料，以鲜香嫩滑著称，在醴陵有口皆碑。体验馆的核心项目是手工石磨豆腐体验。游客在工作人员指导下，亲手参与磨豆、煮浆、滤渣、点兑、成型全过程，见证黄豆到豆腐的“华丽蜕变”。亲手磨出的豆浆如奶油般细腻，制成的豆腐嫩滑可口，令人成就感满满。许多游客评价，在这里能重温“童年的味道”和“乡愁”的记忆。
+                
+                体验馆暑期开放时间为8:00至15:00，团队可提前向村委会预约。如今，沩山豆腐与古窑文化、沩山糯米饭等非遗项目深度融合，共同构成“看沩山古窑，品非遗美食”的特色旅游体验，成为当地乡村振兴的重要助力。`,
+                images: ['trace6-1.png', 'trace6-2.png']
+            },
+            {
+                id: 'meiguijidi',
+                name: '沩山村玫瑰基地',
+                description: `沩山村玫瑰花基地是当地乡村振兴中一张亮丽的名片，它将特色种植与乡村旅游巧妙结合，为古老的瓷村注入了新的活力。四月以来，沩山村玫瑰花基地的百余亩玫瑰陆续绽放，红玫瑰热情似火、粉玫瑰娇羞柔弱、白玫瑰清纯淡雅……一团团、一簇簇，娇艳欲滴，红艳艳的花朵在绿叶的映衬下显得格外娇美，楚楚动人，置身玫瑰花海，别有一番浪漫风情，扑鼻花香令人陶醉。沩山村玫瑰花基地集农业休闲、观光体验、美食品尝为一体，依托良好的自然环境，种植的玫瑰花骨朵大、花瓣厚、香味浓，可观赏、可食用。
+                
+                这片玫瑰花海位于沩山村的山谷地带，与月形湾古窑厂、古洞天寺等历史遗迹相映成趣。基地于2021年启动建设，旨在盘活闲置土地，利用当地水土优势发展高产值农业。
+                
+                花开时节，这里成为湘赣边游客的热门打卡地。游客不仅可以穿行花海拍照，还能体验采摘。当窑火化作花香，古老沩山便有了新的叙事。玫瑰谷里，每一片花瓣都托着乡村振兴的梦想，让游人在芬芳中驻足，也让村庄在瓷与花的交响里，走向更远的远方。`,
+                images: ['trace7-1.png', 'trace7-2.png']
+            },
+            {
+                id: 'wangxianqiao',
+                name: '望仙桥水库',
+                description: `望仙桥水库位于沩山镇境内，犹如一颗镶嵌在醴陵东边的“蓝色宝石”。水库建成于1959年，常年水面19.2平方千米，蓄水总量1240万立方米，担负着醴陵城市供水和2.82万亩农田灌溉任务，是湖南省饮用水源一级保护区。作为醴陵市以灌溉，供水为主、兼顾防洪、发电等综合调蓄枢纽，及盘活沩山村周边以“醴陵窑”为主的旅游资源和乡村农家乐、露营基地等实体经济产业的载体，望仙桥水库对乡村生态保护意义重大，同时也是湘赣边游客节假日参与亲子游、户外游、观光游的不二选择。
+                
+                如今的水库碧波荡漾，鱼翔浅底，野鸭等野生飞禽身影增多，成为生态保护的一张靓丽名片。坝体上“望仙桥水库”五个大字与周边青山绿水交相辉映。`,
+                images: ['trace8-1.png', 'trace8-2.png']
+            }
+        ];
+
+        // 初始化页面时加载第一个地点
+        document.addEventListener('DOMContentLoaded', function() {
+            loadSite('yuexingwan');
+        });
+
+        // 为所有地点按钮绑定点击事件
+        document.querySelectorAll('.marker-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                // 移除所有按钮的active类
+                document.querySelectorAll('.marker-btn').forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+                const siteId = this.dataset.site;
+                loadSite(siteId);
+            });
+        });
+
+        // 加载地点详情（包括轮播）
+        function loadSite(siteId) {
+            const site = sitesData.find(s => s.id === siteId);
+            if (!site) return;
+
+            const detailContainer = document.getElementById('siteDetail');
+            // 将描述文本按换行分割成段落数组（过滤空行）
+            const paragraphs = site.description.split('\n').filter(p => p.trim() !== '');
+            let descHtml = '';
+            paragraphs.forEach(p => {
+                descHtml += `<p>${p.trim()}</p>`;
+            });
+            // 生成HTML结构
+            let html = `
+                <h3 class="site-title">${site.name}</h3>
+                <div class="site-description">${descHtml}</div>
+                <div class="site-carousel">
+                    <div class="carousel-images">
+                        ${site.images.map((img, index) => `<img src="img/${img}" alt="${site.name}" class="carousel-image ${index === 0 ? 'active' : ''}" data-index="${index}">`).join('')}
+                    </div>
+                    <button class="carousel-prev">❮</button>
+                    <button class="carousel-next">❯</button>
+                    <div class="carousel-dots">
+                        ${site.images.map((_, index) => `<span class="dot ${index === 0 ? 'active' : ''}" data-index="${index}"></span>`).join('')}
+                    </div>
+                </div>
+            `;
+            detailContainer.innerHTML = html;
+
+            // 为该地点的轮播绑定事件
+            initCarousel(site.images.length);
+        }
+
+        // 轮播功能初始化
+        function initCarousel(imageCount) {
+            if (imageCount === 0) return;
+            const images = document.querySelectorAll('.carousel-image');
+            const dots = document.querySelectorAll('.dot');
+            const prevBtn = document.querySelector('.carousel-prev');
+            const nextBtn = document.querySelector('.carousel-next');
+            let currentIndex = 0;
+
+            function showImage(index) {
+                if (index < 0) index = imageCount - 1;
+                if (index >= imageCount) index = 0;
+                images.forEach(img => img.classList.remove('active'));
+                dots.forEach(dot => dot.classList.remove('active'));
+                images[index].classList.add('active');
+                dots[index].classList.add('active');
+                currentIndex = index;
+            }
+
+            if (prevBtn && nextBtn) {
+                prevBtn.addEventListener('click', () => showImage(currentIndex - 1));
+                nextBtn.addEventListener('click', () => showImage(currentIndex + 1));
+                dots.forEach((dot, i) => {
+                    dot.addEventListener('click', () => showImage(i));
+                });
+            }
+        }
+    </script>
+    <script src="js/main.js"></script>
+</body>
+</html>

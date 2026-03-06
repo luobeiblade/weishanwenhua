@@ -1,0 +1,260 @@
+/* 行走沩山专属样式 */
+.travel-intro {
+    font-size: 1.1rem;
+    line-height: 1.9;
+    margin: 1.5rem 0;
+    padding: 1rem 1.5rem;
+    background-color: #f8f9f7;
+    border-radius: 12px;
+    text-align: justify;
+}
+
+.section-subtitle {
+    font-size: 1.3rem;
+    color: #b55b3e;
+    margin: 2rem 0 1rem;
+    padding-left: 0.8rem;
+    border-left: 3px solid #b55b3e;
+}
+
+.sub-heading {
+    font-size: 1.2rem;
+    color: #2a4435;
+    margin: 1.5rem 0 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px dashed #e2e6de;
+}
+
+/* 表格容器 */
+.table-wrap {
+    overflow-x: auto;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    margin: 1rem 0;
+}
+
+/* 通用表格样式 */
+.travel-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 1rem;
+}
+
+.travel-table th {
+    background: #f0efe7;
+    color: #2a4435;
+    padding: 0.8rem;
+    text-align: left;
+    font-weight: 700;
+    border-bottom: 2px solid #b55b3e;
+}
+
+.travel-table td {
+    padding: 0.8rem;
+    border-bottom: 1px solid #e2e6de;
+}
+
+.travel-table tr:hover {
+    background: #f8f9f7;
+}
+
+/* 路线表格适配 */
+.route-table th:nth-child(1) {width: 15%;}
+.route-table th:nth-child(2) {width: 25%;}
+.route-table th:nth-child(3) {width: 60%;}
+
+/* 路线标题 */
+.route-title {
+    font-size: 1.1rem;
+    color: #b55b3e;
+    margin: 1rem 0 0.5rem;
+    font-weight: 600;
+}
+
+/* 游览路线左表右图布局核心样式 */
+.route-layout {
+    display: flex;
+    gap: 1.5rem; /* 表格和图片之间的间距 */
+    align-items: flex-start; /* 顶部对齐 */
+    margin: 1rem 0;
+}
+
+/* 左侧表格容器：占比60% */
+.route-table-wrap {
+    flex: 6;
+    overflow-x: auto; /* 保留表格横向滚动，适配小屏 */
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+/* 右侧图片容器：占比40% */
+.route-img-box {
+    flex: 4;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+/* 攻略图样式：自适应容器，保持比例 */
+.route-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* 保证图片不变形，填充容器 */
+    display: block;
+    cursor: pointer; /* 支持点击放大功能 */
+    transition: transform 0.3s ease;
+}
+
+.route-img:hover {
+    transform: scale(1.02); /* 悬停轻微放大，提升交互 */
+}
+
+/* 移动端适配：768px以下自动堆叠 */
+@media (max-width: 768px) {
+    .route-layout {
+        flex-direction: column; /* 改为上下布局 */
+        gap: 1rem; /* 缩小间距 */
+    }
+    .route-table-wrap, .route-img-box {
+        flex: 1; /* 占满整行 */
+    }
+    .route-img {
+        max-height: 300px; /* 移动端限制图片高度，避免过长 */
+    }
+}
+
+/* 民宿图片并排容器 - 核心：限制最大宽度+居中，实现整体缩小 */
+.hotel-img-group {
+    display: flex;
+    gap: 1rem; /* 两张图片之间的间距 */
+    width: 100%;
+    max-width: 700px; /* 限制图片区域最大宽度，可根据需求调整（比如700px/900px） */
+    margin: 1rem 0; /* 上下间距1rem，左右自动居中 */
+    padding: 0 1rem 0 0; /* 移动端左右留白，避免贴边 */
+}
+
+/* 单张图片容器 - 保留自适应，无固定高度 */
+.hotel-img-item {
+    flex: 1; /* 两张图片各占50%宽度 */
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    height: 450px;
+}
+
+/* 民宿图片样式 - 按自身比例自适应，无固定高度 */
+.hotel-img {
+    width: 100%;
+    height: 100%; /* 高度随宽度和自身比例自动计算 */
+    display: block; /* 消除图片底部空白 */
+    object-fit: cover; /* 仅优化比例匹配，不强制变形 */
+    cursor: pointer; /* 保留点击放大功能 */
+    transition: transform 0.3s ease;
+}
+
+.hotel-img:hover {
+    transform: scale(1.02); /* 悬停轻微放大 */
+}
+
+/* 移动端适配：图片上下堆叠，最大宽度100% */
+@media (max-width: 768px) {
+    .hotel-img-group {
+        flex-direction: column; /* 改为上下布局 */
+        gap: 0.8rem;
+        max-width: 100%; /* 移动端取消最大宽度限制，占满屏幕 */
+        padding: 0 0.8rem;
+    }
+    .hotel-img-item {
+        flex: none;
+        width: 100%;
+    }
+}
+
+/* 住宿/餐饮卡片 */
+.hotel-card, .restaurant-card {
+    background: #fff;
+    padding: 1.2rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    margin-bottom: 1rem;
+    border-left: 4px solid #2a4435;
+}
+
+.hotel-name, .restaurant-name {
+    font-size: 1.2rem;
+    color: #2a4435;
+    margin-bottom: 0.8rem;
+    font-weight: 700;
+}
+
+.hotel-info, .restaurant-info, .restaurant-desc {
+    font-size: 1rem;
+    line-height: 1.7;
+    margin-bottom: 0.6rem;
+}
+
+/* 餐馆图片并排容器：靠左 + 限制最大宽度 */
+.restaurant-img-group {
+    display: flex;
+    gap: 1rem;
+    width: 100%;
+    max-width: 800px; /* 控制整体大小，可按需调整 */
+    margin: 1rem 0; /* 靠左 */
+    padding: 0 1rem 0 0;
+}
+
+/* 单张图片容器：固定高度，保证两张图高度一致 */
+.restaurant-img-item {
+    flex: 1;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    height: 300px; /* 统一高度，可按需调整 */
+}
+
+/* 餐馆图片样式：高度一致，不拉伸变形 */
+.restaurant-img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+    object-position: center;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.restaurant-img:hover {
+    transform: scale(1.02);
+}
+
+/* 移动端适配：图片上下堆叠，高度仍一致 */
+@media (max-width: 768px) {
+    .restaurant-img-group {
+        flex-direction: column;
+        gap: 0.8rem;
+        max-width: 100%;
+        padding: 0 0.8rem 0 0;
+    }
+    .restaurant-img-item {
+        flex: none;
+        width: 100%;
+        height: 250px; /* 移动端高度可适当缩小 */
+    }
+}
+
+/* 移动端适配 */
+@media (max-width: 768px) {
+    .travel-intro {
+        padding: 1rem;
+        font-size: 1rem;
+    }
+    .travel-table th, .travel-table td {
+        padding: 0.6rem;
+        font-size: 0.9rem;
+    }
+    .hotel-card, .restaurant-card {
+        padding: 1rem;
+    }
+}

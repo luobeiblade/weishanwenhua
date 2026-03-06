@@ -1,0 +1,239 @@
+/* trace2.css - 窑火遗痕页面专用样式 */
+/* ===== 地图上方引导文字 ===== */
+.map-intro {
+    margin-bottom: 1.5rem;
+    padding: 1rem 1.5rem;
+    background: #f8f4ea;         
+    border-radius: 6px;
+    border-left: 5px solid #b55b3e;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    color: #2c4a3a;
+}
+
+.map-intro p {
+    margin: 0.5rem 0;
+    text-indent: 2em;              /* 首行缩进 */
+    line-height: 1.6;
+}
+
+/* ===== 地点切换按钮 ===== */
+.map-marker-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.2rem;
+    justify-content: center;
+    margin: 1.5rem 0;
+}
+
+.marker-btn {
+    background: #ffffffd9;
+    border: 2px solid transparent;
+    border-radius: 40px;
+    padding: 0.5rem 1.5rem;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    border-left: 5px solid #b55b3e;
+    font-weight: 500;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    color: #2c3e3a;
+}
+
+.marker-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+    background: #f0efe7;
+}
+
+.marker-btn.active {
+    background: #b55b3e;
+    color: white;
+    border-left-color: #ffdab9;
+    box-shadow: 0 6px 12px rgba(181, 91, 62, 0.3);
+}
+
+/* ===== 地点详情容器 ===== */
+.site-detail-container {
+    margin: 2.5rem 0;
+    padding: 2rem;
+    background: white;
+    border-radius: 24px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+    border: 1px solid #eae6db;
+}
+
+/* 地点标题 */
+.site-title {
+    font-size: 2rem;
+    color: #2a4435;
+    margin-bottom: 0.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 3px solid #b55b3e;
+    display: inline-block;
+}
+
+/* 地点描述文字容器（带滚动条） */
+.site-description {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #2c4a3a;
+    margin: 0.2rem 0;
+    text-align: justify;
+    max-height: 600px;
+    overflow-y: auto;
+    padding-right: 1rem;
+}
+
+.site-description::-webkit-scrollbar {
+    width: 6px;
+}
+.site-description::-webkit-scrollbar-thumb {
+    background: #b55b3e;
+    border-radius: 10px;
+}
+
+/* 描述段落样式：首行缩进（已移除首字放大效果） */
+.site-description p {
+    margin: 1rem 0;
+    text-indent: 2em;              /* 每个段落首行缩进 */
+    line-height: 1.8;
+}
+
+/* ===== 轮播图样式 ===== */
+.site-carousel {
+    position: relative;
+    width: 100%;
+    margin: 2rem 0 1rem;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+}
+
+/* 图片列表容器（固定最小高度，防止无图时塌陷） */
+.carousel-images {
+    position: relative;
+    min-height: 600px;
+    background: #f0f0f0;
+}
+
+.carousel-image {
+    width: 100%;
+    height: 600px;
+    object-fit: cover;
+    display: none;                 /* 默认隐藏，由JS控制active显示 */
+}
+
+.carousel-image.active {
+    display: block;
+}
+
+/* 左右箭头 */
+.carousel-prev,
+.carousel-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.5);
+    border: none;
+    color: white;
+    font-size: 2rem;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background 0.3s;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.carousel-prev:hover,
+.carousel-next:hover {
+    background: #b55b3e;
+}
+
+.carousel-prev {
+    left: 15px;
+}
+
+.carousel-next {
+    right: 15px;
+}
+
+/* 小圆点指示器 */
+.carousel-dots {
+    position: absolute;
+    bottom: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 10px;
+    z-index: 10;
+}
+
+.dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.5);
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.dot.active {
+    background: #b55b3e;
+}
+
+/* ===== 移动端适配 ===== */
+@media (max-width: 768px) {
+    .map-intro {
+        padding: 0.8rem 1.2rem;
+        font-size: 1rem;
+    }
+
+    .marker-btn {
+        padding: 0.4rem 1.2rem;
+        font-size: 0.95rem;
+    }
+
+    .site-title {
+        font-size: 1.6rem;
+    }
+
+    .site-description {
+        font-size: 1rem;
+        max-height: 250px;
+    }
+
+    .carousel-image {
+        height: 250px;
+    }
+
+    .carousel-prev,
+    .carousel-next {
+        width: 40px;
+        height: 40px;
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .marker-btn {
+        padding: 0.3rem 1rem;
+        font-size: 0.85rem;
+    }
+
+    .carousel-image {
+        height: 200px;
+    }
+
+    .carousel-dots {
+        gap: 6px;
+    }
+
+    .dot {
+        width: 10px;
+        height: 10px;
+    }
+}

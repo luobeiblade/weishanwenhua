@@ -1,0 +1,384 @@
+/* history2.css - 小南京往事页面专用样式 */
+
+/* ===== 索引导航 ===== */
+.history-tabs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin: 2.5rem 0 1.5rem;
+    border-bottom: 2px solid #e2dac8;
+    padding-bottom: 0.5rem;
+}
+
+.tab-btn {
+    background: transparent;
+    border: none;
+    padding: 0.6rem 1.2rem;
+    font-size: 1rem;
+    font-weight: 500;
+    color: #5c6e5a;
+    cursor: pointer;
+    border-radius: 30px 30px 0 0;
+    transition: all 0.2s;
+    position: relative;
+}
+
+.tab-btn:hover {
+    color: #b55b3e;
+    background: #f8f4ea;
+}
+
+.tab-btn.active {
+    color: #b55b3e;
+    font-weight: 600;
+}
+
+.tab-btn.active::after {
+    content: '';
+    position: absolute;
+    bottom: -7px;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: #b55b3e;
+    border-radius: 3px 3px 0 0;
+}
+
+/* ===== 标签内容区 ===== */
+.tab-content {
+    display: none;
+    margin-top: 1.5rem;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+/* 导语（棕黄色） */
+.tab-intro {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    color: #2c4a3a;
+    margin-bottom: 2rem;
+    font-style: normal;
+}
+
+/* 子标题 */
+.tab-subtitle {
+    font-size: 1.6rem;
+    color: #2a4435;
+    margin: 2rem 0 1rem;
+    border-left: 4px solid #b55b3e;
+    padding-left: 1rem;
+}
+
+/* 表格 - 优化版 */
+.history-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 2rem 0;
+    background: white;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    font-size: 1rem;
+}
+
+.history-table th,
+.history-table td {
+    padding: 1rem 1.5rem;
+    text-align: left;
+    border-bottom: 1px solid #e2e6de;
+}
+
+/* 表头样式增强 */
+.history-table th {
+    background: #e8eae3;        /* 略深一点的背景 */
+    color: #2a4435;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    border-bottom: 2px solid #b55b3e; /* 底部加红色细线 */
+}
+
+/* 最后一行无下边框 */
+.history-table tr:last-child td {
+    border-bottom: none;
+}
+
+/* 悬停行效果 */
+.history-table tr:hover {
+    background: #f5f3ec;
+}
+
+/* 移动端横向滚动 */
+@media (max-width: 768px) {
+    .history-table {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+        border-radius: 12px;
+    }
+    .history-table th,
+    .history-table td {
+        white-space: normal;      /* 允许换行，但表格可能溢出，通常保持nowrap更好 */
+        /* 如果希望换行，可改为 normal，但需注意宽度 */
+    }
+}
+
+/* ===== 引文卡片 ===== */
+.quote-card {
+    background: #fef8f0;
+    border-radius: 12px;
+    padding: 2rem 2rem 1.5rem;
+    margin-bottom: 2.5rem;
+    border-top: 6px solid #ac9106;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.05);
+}
+
+.quote-title {
+    font-size: 1.8rem;
+    color: #58840e;
+    margin-top: 0;
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
+
+.quote-text {
+    font-size: 1.3rem;
+    line-height: 1.6;
+    color: #2c4a3a;
+    font-style: italic;
+    margin-bottom: 1.2rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px dashed #d4c8b5;
+    text-indent: 2em; 
+}
+
+.quote-source {
+    font-size: 1rem;
+    color: #5f6d5a;
+    background: rgba(255, 255, 255, 0.7);
+    padding: 1rem 1.2rem;
+    border-radius: 16px;
+}
+
+.quote-note {
+    margin-top: 0.8rem;
+    padding-top: 0.8rem;
+    border-top: 1px solid #e2dac8;
+    font-size: 0.95rem;
+    color: #7b6b58;
+}
+
+/* ===== 图文网格布局 ===== */
+.content-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin: 2rem 0;
+    align-items: center;
+    text-indent: 2em; 
+}
+
+.content-grid.reverse .image-block {
+    order: 1;
+}
+.content-grid.reverse .text-block {
+    order: 2;
+}
+
+.text-block p {
+    margin: 1rem 0;
+    line-height: 1.8;
+    text-align: justify;
+}
+
+.image-block {
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.content-image {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.3s;
+}
+
+.content-image:hover {
+    transform: scale(1.02);
+}
+
+/* 结尾段 */
+.closing-note {
+    margin: 2.5rem 0 1rem;
+    padding: 1.5rem 2rem;
+    background: #f0efe7;
+    border-radius: 20px;
+    border: 1px solid #d9d0be;
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #2c4a3a;
+    text-align: justify;
+    text-indent: 2em; 
+}
+
+/* ===== 移动端适配 ===== */
+@media (max-width: 768px) {
+    .history-tabs {
+        justify-content: center;
+    }
+    .tab-btn {
+        font-size: 0.9rem;
+        padding: 0.5rem 1rem;
+    }
+    .tab-intro {
+        font-size: 1.1rem;
+        padding: 0.8rem 1rem;
+    }
+    .tab-subtitle {
+        font-size: 1.3rem;
+    }
+    .timeline-item {
+        flex-direction: column;
+        padding: 0.8rem;
+    }
+    .timeline-year {
+        flex: auto;
+        margin-bottom: 0.4rem;
+        font-size: 1rem;
+    }
+    .quote-card {
+        padding: 1.5rem;
+    }
+    .quote-title {
+        font-size: 1.5rem;
+    }
+    .quote-text {
+        font-size: 1.1rem;
+    }
+    .content-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    .content-grid.reverse .image-block {
+        order: 0; /* 恢复自然顺序 */
+    }
+    .closing-note {
+        padding: 1.2rem;
+        font-size: 1rem;
+    }
+}
+/* ===== 图片网格（用于“繁华旧事”） ===== */
+.history-text {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #2c4a3a;
+    margin: 1.5rem 0;
+    text-align: justify;
+    text-indent: 2em; 
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    margin: 2rem 0;
+}
+
+.gallery-item {
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.gallery-item:hover {
+    transform: scale(1.02);
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    display: block;
+}
+
+/* 移动端适配 */
+@media (max-width: 768px) {
+    .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .gallery-item img {
+        height: 180px;
+    }
+}
+
+@media (max-width: 480px) {
+    .gallery-grid {
+        grid-template-columns: 1fr;
+    }
+    .gallery-item img {
+        height: 220px;
+    }
+}
+/* ===== 关键历史人物卡片网格 ===== */
+.people-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.2rem;
+    margin: 2rem 0 3rem;
+}
+
+.people-card {
+    background: white;
+    border-radius: 12px;
+    padding: 1.5rem 1.2rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    border: 1px solid #f0e8dd;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.people-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);
+}
+
+.people-name {
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: #b55b3e;
+    margin-bottom: 0.8rem;
+    border-bottom: 1px dashed #e2dac8;
+    padding-bottom: 0.5rem;
+}
+
+.people-desc {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: #4a5a4e;
+}
+
+/* 移动端适配 */
+@media (max-width: 768px) {
+    .people-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+    }
+    .people-card {
+        padding: 1.2rem 0.8rem;
+    }
+    .people-name {
+        font-size: 1.2rem;
+    }
+    .people-desc {
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .people-grid {
+        grid-template-columns: 1fr;
+    }
+}
